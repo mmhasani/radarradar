@@ -22,5 +22,5 @@ response = requests.post(
         "text": message
     }
 )
- 
+
 print(response.text)
