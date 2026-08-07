@@ -11,7 +11,7 @@ data = requests.get(url).json()
 
 price = data["chart"]["result"][0]["meta"]["regularMarketPrice"]
 
-message = f"📈 {symbol}\nالسعر الحالي: ${price}"
+message = "TEST 777"
 
 telegram_url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
