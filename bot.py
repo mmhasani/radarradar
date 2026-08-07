@@ -3,12 +3,20 @@ import requests
 BOT_TOKEN = "8888012466:AAEzxacUUvfa2I5ny7LMzicZChZZQ_lQkWo"
 CHAT_ID = "8325305534"
 
-message = "✅ Trading Radar Test"
+symbol = "AMD"
 
-url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
+url = f"https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+
+data = requests.get(url).json()
+
+price = data["chart"]["result"][0]["meta"]["regularMarketPrice"]
+
+message = f"📈 {symbol}\nالسعر الحالي: ${price}"
+
+telegram_url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
 response = requests.post(
-    url,
+    telegram_url,
     data={
         "chat_id": CHAT_ID,
         "text": message
