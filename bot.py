@@ -7,7 +7,7 @@ message = "✅ Trading Radar Test"
 
 url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
 
-requests.post(
+response = requests.post(
     url,
     data={
         "chat_id": CHAT_ID,
@@ -15,4 +15,4 @@ requests.post(
     }
 )
 
-print("Message Sent")
+print(response.text)
